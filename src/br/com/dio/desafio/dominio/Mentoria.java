@@ -2,16 +2,17 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria extends Conteudo{
+public class Mentoria extends Conteudo implements Content{
 
     private LocalDate data;
+
+    public Mentoria(LocalDate data) {
+        this.data = data;
+    }
 
     @Override
     public double calcularXp() {
         return XP_PADRAO + 20d;
-    }
-
-    public Mentoria() {
     }
 
     public LocalDate getData() {
@@ -29,5 +30,10 @@ public class Mentoria extends Conteudo{
                 ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data +
                 '}';
+    }
+
+    @Override
+    public double getCargaHoraria() {
+        return 0; // Mentorias don't have a workload in this example
     }
 }
